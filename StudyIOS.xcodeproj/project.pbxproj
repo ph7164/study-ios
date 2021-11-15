@@ -19,6 +19,14 @@
 		FD8CD90527421B0800D378D2 /* StudyIOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD8CD90427421B0800D378D2 /* StudyIOSTests.swift */; };
 		FD8CD90F27421B0800D378D2 /* StudyIOSUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD8CD90E27421B0800D378D2 /* StudyIOSUITests.swift */; };
 		FD8CD91127421B0800D378D2 /* StudyIOSUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD8CD91027421B0800D378D2 /* StudyIOSUITestsLaunchTests.swift */; };
+		FD8CD91F27421DDE00D378D2 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = FD8CD91E27421DDE00D378D2 /* .swiftlint.yml */; };
+		FD8CD926274227D700D378D2 /* Encodable+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD8CD925274227D700D378D2 /* Encodable+Extension.swift */; };
+		FD8CD928274227F300D378D2 /* Api.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD8CD927274227F300D378D2 /* Api.swift */; };
+		FD8CD92B2742281300D378D2 /* SearchUserDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD8CD92A2742281300D378D2 /* SearchUserDTO.swift */; };
+		FD8CD92E2742283900D378D2 /* SearchUser.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FD8CD92D2742283900D378D2 /* SearchUser.storyboard */; };
+		FD8CD9302742286100D378D2 /* SearchUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD8CD92F2742286100D378D2 /* SearchUserViewController.swift */; };
+		FD8CD933274228DC00D378D2 /* UserTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD8CD931274228DC00D378D2 /* UserTableViewCell.swift */; };
+		FD8CD934274228DC00D378D2 /* UserTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FD8CD932274228DC00D378D2 /* UserTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +69,14 @@
 		FD8CD90A27421B0800D378D2 /* StudyIOSUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = StudyIOSUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD8CD90E27421B0800D378D2 /* StudyIOSUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudyIOSUITests.swift; sourceTree = "<group>"; };
 		FD8CD91027421B0800D378D2 /* StudyIOSUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudyIOSUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		FD8CD91E27421DDE00D378D2 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
+		FD8CD925274227D700D378D2 /* Encodable+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Encodable+Extension.swift"; sourceTree = "<group>"; };
+		FD8CD927274227F300D378D2 /* Api.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Api.swift; sourceTree = "<group>"; };
+		FD8CD92A2742281300D378D2 /* SearchUserDTO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchUserDTO.swift; sourceTree = "<group>"; };
+		FD8CD92D2742283900D378D2 /* SearchUser.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SearchUser.storyboard; sourceTree = "<group>"; };
+		FD8CD92F2742286100D378D2 /* SearchUserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchUserViewController.swift; sourceTree = "<group>"; };
+		FD8CD931274228DC00D378D2 /* UserTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserTableViewCell.swift; sourceTree = "<group>"; };
+		FD8CD932274228DC00D378D2 /* UserTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UserTableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,13 +127,13 @@
 				AC252FDE7597A778ED4774F8 /* Pods-StudyIOSTests.debug.xcconfig */,
 				AE7383DC0F9A577FE1772D8B /* Pods-StudyIOSTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
 		FD8CD8E127421B0200D378D2 = {
 			isa = PBXGroup;
 			children = (
+				FD8CD91E27421DDE00D378D2 /* .swiftlint.yml */,
 				FD8CD8EC27421B0200D378D2 /* StudyIOS */,
 				FD8CD90327421B0800D378D2 /* StudyIOSTests */,
 				FD8CD90D27421B0800D378D2 /* StudyIOSUITests */,
@@ -140,6 +156,10 @@
 		FD8CD8EC27421B0200D378D2 /* StudyIOS */ = {
 			isa = PBXGroup;
 			children = (
+				FD8CD9232742279300D378D2 /* Data */,
+				FD8CD9222742278C00D378D2 /* Domain */,
+				FD8CD9212742276F00D378D2 /* Presentation */,
+				FD8CD9202742276300D378D2 /* Util */,
 				FD8CD8ED27421B0200D378D2 /* AppDelegate.swift */,
 				FD8CD8EF27421B0200D378D2 /* SceneDelegate.swift */,
 				FD8CD8F127421B0200D378D2 /* ViewController.swift */,
@@ -168,6 +188,65 @@
 			path = StudyIOSUITests;
 			sourceTree = "<group>";
 		};
+		FD8CD9202742276300D378D2 /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				FD8CD924274227B200D378D2 /* Extension */,
+			);
+			path = Util;
+			sourceTree = "<group>";
+		};
+		FD8CD9212742276F00D378D2 /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				FD8CD92C2742282200D378D2 /* SearchUser */,
+			);
+			path = Presentation;
+			sourceTree = "<group>";
+		};
+		FD8CD9222742278C00D378D2 /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Domain;
+			sourceTree = "<group>";
+		};
+		FD8CD9232742279300D378D2 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				FD8CD929274227F900D378D2 /* DTO */,
+				FD8CD927274227F300D378D2 /* Api.swift */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		FD8CD924274227B200D378D2 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				FD8CD925274227D700D378D2 /* Encodable+Extension.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		FD8CD929274227F900D378D2 /* DTO */ = {
+			isa = PBXGroup;
+			children = (
+				FD8CD92A2742281300D378D2 /* SearchUserDTO.swift */,
+			);
+			path = DTO;
+			sourceTree = "<group>";
+		};
+		FD8CD92C2742282200D378D2 /* SearchUser */ = {
+			isa = PBXGroup;
+			children = (
+				FD8CD92D2742283900D378D2 /* SearchUser.storyboard */,
+				FD8CD92F2742286100D378D2 /* SearchUserViewController.swift */,
+				FD8CD931274228DC00D378D2 /* UserTableViewCell.swift */,
+				FD8CD932274228DC00D378D2 /* UserTableViewCell.xib */,
+			);
+			path = SearchUser;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -176,6 +255,7 @@
 			buildConfigurationList = FD8CD91427421B0800D378D2 /* Build configuration list for PBXNativeTarget "StudyIOS" */;
 			buildPhases = (
 				700897AC95AD6711D9404D81 /* [CP] Check Pods Manifest.lock */,
+				FD8CD91D27421D8700D378D2 /* SwiftLint Script */,
 				FD8CD8E627421B0200D378D2 /* Sources */,
 				FD8CD8E727421B0200D378D2 /* Frameworks */,
 				FD8CD8E827421B0200D378D2 /* Resources */,
@@ -277,8 +357,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FD8CD92E2742283900D378D2 /* SearchUser.storyboard in Resources */,
+				FD8CD91F27421DDE00D378D2 /* .swiftlint.yml in Resources */,
 				FD8CD8FA27421B0700D378D2 /* LaunchScreen.storyboard in Resources */,
 				FD8CD8F727421B0700D378D2 /* Assets.xcassets in Resources */,
+				FD8CD934274228DC00D378D2 /* UserTableViewCell.xib in Resources */,
 				FD8CD8F527421B0200D378D2 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -400,6 +483,24 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		FD8CD91D27421D8700D378D2 /* SwiftLint Script */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "SwiftLint Script";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\nif which swiftlint >/dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -408,7 +509,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				FD8CD8F227421B0200D378D2 /* ViewController.swift in Sources */,
+				FD8CD926274227D700D378D2 /* Encodable+Extension.swift in Sources */,
 				FD8CD8EE27421B0200D378D2 /* AppDelegate.swift in Sources */,
+				FD8CD9302742286100D378D2 /* SearchUserViewController.swift in Sources */,
+				FD8CD933274228DC00D378D2 /* UserTableViewCell.swift in Sources */,
+				FD8CD928274227F300D378D2 /* Api.swift in Sources */,
+				FD8CD92B2742281300D378D2 /* SearchUserDTO.swift in Sources */,
 				FD8CD8F027421B0200D378D2 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
