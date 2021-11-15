@@ -18,17 +18,15 @@ class API {
 }
 
 extension API {
-    func searchUser(text: String, completion: @escaping([SearchUserDTO.UserProfile]) -> Void) {
-        let tempItems: [SearchUserDTO.UserProfile] = []
+    func searchUser(text: String, completion: @escaping([SearchUserDTO.UserProfile]?, AFError?) -> Void) {
         let url = Constants.baseURL + Constants.searchUserURL
         
         AF.request(url, method: .get, parameters: SearchUserDTO.Request(query: text).toDictionary, encoding: URLEncoding.queryString).responseDecodable(of: SearchUserDTO.Response.self) { response in
             switch response.result {
             case .success(let data):
-                completion(data.items)
+                completion(data.items, nil)
             case .failure(let error):
-                print(error.localizedDescription)
-                completion(tempItems)
+                completion(nil, error)
             }
         }
     }
