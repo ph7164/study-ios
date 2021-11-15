@@ -9,8 +9,8 @@ import UIKit
 
 class UserTableViewCell: UITableViewCell {
     
-    @IBOutlet weak var profileImageView: UIImageView!
-    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet private weak var profileImageView: UIImageView!
+    @IBOutlet private weak var nameLabel: UILabel!
 
     override func awakeFromNib() {
         super.awakeFromNib()

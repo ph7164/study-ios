@@ -9,10 +9,9 @@ import UIKit
 import Alamofire
 
 class SearchUserViewController: UIViewController {
-    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet private weak var tableView: UITableView!
     
     private var searchController = UISearchController(searchResultsController: nil)
-    private let url = "https://api.github.com/search/users"
     private var users: [SearchUserDTO.UserProfile] = []
     
     override func viewDidLoad() {
@@ -48,16 +47,10 @@ extension SearchUserViewController: UISearchControllerDelegate, UISearchBarDeleg
             }
         }
     }
-    private func searchBarIsEmpty() -> Bool {
-        return searchController.searchBar.text?.isEmpty ?? true
-    }
-    private func isFiltering() -> Bool {
-        return searchController.isActive && !searchBarIsEmpty()
-    }
 }
 extension SearchUserViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if isFiltering() {
+        if searchController.isActive && !searchController.searchBar.text!.isEmpty {
             return users.count
         }
         
