@@ -27,6 +27,7 @@
 		FD8CD9302742286100D378D2 /* SearchUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD8CD92F2742286100D378D2 /* SearchUserViewController.swift */; };
 		FD8CD933274228DC00D378D2 /* UserTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD8CD931274228DC00D378D2 /* UserTableViewCell.swift */; };
 		FD8CD934274228DC00D378D2 /* UserTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FD8CD932274228DC00D378D2 /* UserTableViewCell.xib */; };
+		FDAD84A82744C59100AB7FD5 /* SearchUserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDAD84A72744C59100AB7FD5 /* SearchUserModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -77,6 +78,7 @@
 		FD8CD92F2742286100D378D2 /* SearchUserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchUserViewController.swift; sourceTree = "<group>"; };
 		FD8CD931274228DC00D378D2 /* UserTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserTableViewCell.swift; sourceTree = "<group>"; };
 		FD8CD932274228DC00D378D2 /* UserTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UserTableViewCell.xib; sourceTree = "<group>"; };
+		FDAD84A72744C59100AB7FD5 /* SearchUserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchUserModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -207,6 +209,7 @@
 		FD8CD9222742278C00D378D2 /* Domain */ = {
 			isa = PBXGroup;
 			children = (
+				FDAD84A62744C57400AB7FD5 /* Model */,
 			);
 			path = Domain;
 			sourceTree = "<group>";
@@ -245,6 +248,14 @@
 				FD8CD932274228DC00D378D2 /* UserTableViewCell.xib */,
 			);
 			path = SearchUser;
+			sourceTree = "<group>";
+		};
+		FDAD84A62744C57400AB7FD5 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				FDAD84A72744C59100AB7FD5 /* SearchUserModel.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -511,6 +522,7 @@
 				FD8CD8F227421B0200D378D2 /* ViewController.swift in Sources */,
 				FD8CD926274227D700D378D2 /* Encodable+Extension.swift in Sources */,
 				FD8CD8EE27421B0200D378D2 /* AppDelegate.swift in Sources */,
+				FDAD84A82744C59100AB7FD5 /* SearchUserModel.swift in Sources */,
 				FD8CD9302742286100D378D2 /* SearchUserViewController.swift in Sources */,
 				FD8CD933274228DC00D378D2 /* UserTableViewCell.swift in Sources */,
 				FD8CD928274227F300D378D2 /* Api.swift in Sources */,

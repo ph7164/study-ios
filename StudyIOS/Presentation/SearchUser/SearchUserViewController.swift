@@ -13,6 +13,7 @@ class SearchUserViewController: UIViewController {
     
     private var searchController = UISearchController(searchResultsController: nil)
     private var users: [SearchUserDTO.UserProfile] = []
+    var model: SearchUserModel?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,6 +28,7 @@ class SearchUserViewController: UIViewController {
         navigationItem.searchController = searchController
         definesPresentationContext = true
 
+        model = SearchUserModel()
     }
 }
 
@@ -36,15 +38,23 @@ extension SearchUserViewController: UISearchControllerDelegate, UISearchBarDeleg
         if str!.count < 1 {
             
         } else {
-            API.shared.searchUser(text: searchController.searchBar.text!) { (result, err) in
+            model?.searchUser(text: searchController.searchBar.text!) { (result, err) in
                 if err == nil {
                     if !result!.isEmpty {
                         self.users = result!
                         self.tableView.reloadData()
                     }
                 }
-                
             }
+//            API.shared.searchUser(text: searchController.searchBar.text!) { (result, err) in
+//                if err == nil {
+//                    if !result!.isEmpty {
+//                        self.users = result!
+//                        self.tableView.reloadData()
+//                    }
+//                }
+//                
+//            }
         }
     }
 }
