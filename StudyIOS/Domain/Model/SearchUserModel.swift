@@ -6,25 +6,20 @@
 //
 
 import Foundation
-import Alamofire
 
-protocol SearchUserModelProtocol {
-    func searchUser(text: String, completion: @escaping([SearchUserDTO.UserProfile]?, AFError?) -> Void)
-}
-
-class SearchUserModel: SearchUserModelProtocol {
+struct UserModel {
+    var name: String
+    var profileUrl: String
     
-    func searchUser(text: String, completion: @escaping([SearchUserDTO.UserProfile]?, AFError?) -> Void) {
-        API.shared.searchUser(text: text) { (result, err) in
-            if err == nil {
-                if !result!.isEmpty {
-                    completion(result, nil)
-                }
-            } else {
-                completion(nil, err)
-            }
-            
-        }
-        
+    init() {
+        self.init(name: "", profileUrl: "")
+    }
+    
+    init(name: String,
+         profileUrl: String) {
+        self.name = name
+        self.profileUrl = profileUrl
     }
 }
+
+

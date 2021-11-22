@@ -6,14 +6,13 @@
 //
 
 import UIKit
-import Alamofire
 
 class SearchUserViewController: UIViewController {
     @IBOutlet private weak var tableView: UITableView!
     
     private var searchController = UISearchController(searchResultsController: nil)
-    private var users: [SearchUserDTO.UserProfile] = []
-    var model: SearchUserModel?
+    private var users: [UserModel] = []
+    private var useCase: SearchUserUseCaseType?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,33 +27,25 @@ class SearchUserViewController: UIViewController {
         navigationItem.searchController = searchController
         definesPresentationContext = true
 
-        model = SearchUserModel()
+        useCase = SearchUserUseCase(repository: API.shared)
     }
 }
 
 extension SearchUserViewController: UISearchControllerDelegate, UISearchBarDelegate, UISearchResultsUpdating {
     func updateSearchResults(for searchController: UISearchController) {
         let str = searchController.searchBar.text?.replacingOccurrences(of: " ", with: "").replacingOccurrences(of: "\n", with: "")
-        if str!.count < 1 {
-            
-        } else {
-            model?.searchUser(text: searchController.searchBar.text!) { (result, err) in
-                if err == nil {
-                    if !result!.isEmpty {
-                        self.users = result!
-                        self.tableView.reloadData()
+        guard let str = str, !str.isEmpty else { return }
+        users.removeAll()
+        useCase?.searchUser(text: searchController.searchBar.text!) { (result, err) in
+            guard let result = result else { return }
+            if err == nil {
+                if !result.isEmpty {
+                    for item in result {
+                        self.users.append(item.toDomain())
                     }
+                    self.tableView.reloadData()
                 }
             }
-//            API.shared.searchUser(text: searchController.searchBar.text!) { (result, err) in
-//                if err == nil {
-//                    if !result!.isEmpty {
-//                        self.users = result!
-//                        self.tableView.reloadData()
-//                    }
-//                }
-//                
-//            }
         }
     }
 }

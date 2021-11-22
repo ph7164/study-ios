@@ -18,6 +18,7 @@ enum SearchUserDTO {
     
     struct Response: Codable {
         let items: [UserProfile]
+        
     }
     
     struct UserProfile: Codable {
@@ -28,5 +29,11 @@ enum SearchUserDTO {
             case name = "login"
             case profileUrl = "avatar_url"
         }
+        
+        func toDomain() -> UserModel {
+            return .init(name: name, profileUrl: profileUrl)
+        }
     }
+    
+    
 }
