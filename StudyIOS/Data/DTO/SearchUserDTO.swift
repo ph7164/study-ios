@@ -18,7 +18,6 @@ enum SearchUserDTO {
     
     struct Response: Codable {
         let items: [UserProfile]
-        
     }
     
     struct UserProfile: Codable {

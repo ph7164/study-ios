@@ -68,7 +68,7 @@ extension StudyIOSTests {
         repo.searchUsersError = .internalError(message: "error")
         
         // when
-        sut.searchUser(text: "dd") { (result, err) in
+        sut.searchUser(text: "s") { (result, err) in
             // then
             XCTAssertNil(result)
             XCTAssertEqual(expectedError, err)
@@ -89,7 +89,7 @@ extension StudyIOSTests {
         repo.repo = expectedUsers
         
         // when
-        var resultUsers: [SearchUserDTO.UserProfile]?
+        var resultUsers: [UserModel]?
         sut.searchUser(text: "ss") { (result, err) in
             // then
             resultUsers = result
