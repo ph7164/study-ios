@@ -27,6 +27,9 @@
 		FD8CD9302742286100D378D2 /* SearchUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD8CD92F2742286100D378D2 /* SearchUserViewController.swift */; };
 		FD8CD933274228DC00D378D2 /* UserTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD8CD931274228DC00D378D2 /* UserTableViewCell.swift */; };
 		FD8CD934274228DC00D378D2 /* UserTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FD8CD932274228DC00D378D2 /* UserTableViewCell.xib */; };
+		FDAD84A82744C59100AB7FD5 /* SearchUserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDAD84A72744C59100AB7FD5 /* SearchUserModel.swift */; };
+		FDAD84AB2745469000AB7FD5 /* SearchUserRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDAD84AA2745468F00AB7FD5 /* SearchUserRepository.swift */; };
+		FDAD84AE274546B300AB7FD5 /* SearchUserUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDAD84AD274546B300AB7FD5 /* SearchUserUseCase.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -77,6 +80,9 @@
 		FD8CD92F2742286100D378D2 /* SearchUserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchUserViewController.swift; sourceTree = "<group>"; };
 		FD8CD931274228DC00D378D2 /* UserTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserTableViewCell.swift; sourceTree = "<group>"; };
 		FD8CD932274228DC00D378D2 /* UserTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UserTableViewCell.xib; sourceTree = "<group>"; };
+		FDAD84A72744C59100AB7FD5 /* SearchUserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchUserModel.swift; sourceTree = "<group>"; };
+		FDAD84AA2745468F00AB7FD5 /* SearchUserRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchUserRepository.swift; sourceTree = "<group>"; };
+		FDAD84AD274546B300AB7FD5 /* SearchUserUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchUserUseCase.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -207,6 +213,9 @@
 		FD8CD9222742278C00D378D2 /* Domain */ = {
 			isa = PBXGroup;
 			children = (
+				FDAD84AC274546A700AB7FD5 /* UseCase */,
+				FDAD84A92745467800AB7FD5 /* Interface */,
+				FDAD84A62744C57400AB7FD5 /* Model */,
 			);
 			path = Domain;
 			sourceTree = "<group>";
@@ -245,6 +254,30 @@
 				FD8CD932274228DC00D378D2 /* UserTableViewCell.xib */,
 			);
 			path = SearchUser;
+			sourceTree = "<group>";
+		};
+		FDAD84A62744C57400AB7FD5 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				FDAD84A72744C59100AB7FD5 /* SearchUserModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		FDAD84A92745467800AB7FD5 /* Interface */ = {
+			isa = PBXGroup;
+			children = (
+				FDAD84AA2745468F00AB7FD5 /* SearchUserRepository.swift */,
+			);
+			path = Interface;
+			sourceTree = "<group>";
+		};
+		FDAD84AC274546A700AB7FD5 /* UseCase */ = {
+			isa = PBXGroup;
+			children = (
+				FDAD84AD274546B300AB7FD5 /* SearchUserUseCase.swift */,
+			);
+			path = UseCase;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -510,8 +543,11 @@
 			files = (
 				FD8CD8F227421B0200D378D2 /* ViewController.swift in Sources */,
 				FD8CD926274227D700D378D2 /* Encodable+Extension.swift in Sources */,
+				FDAD84AB2745469000AB7FD5 /* SearchUserRepository.swift in Sources */,
 				FD8CD8EE27421B0200D378D2 /* AppDelegate.swift in Sources */,
+				FDAD84A82744C59100AB7FD5 /* SearchUserModel.swift in Sources */,
 				FD8CD9302742286100D378D2 /* SearchUserViewController.swift in Sources */,
+				FDAD84AE274546B300AB7FD5 /* SearchUserUseCase.swift in Sources */,
 				FD8CD933274228DC00D378D2 /* UserTableViewCell.swift in Sources */,
 				FD8CD928274227F300D378D2 /* Api.swift in Sources */,
 				FD8CD92B2742281300D378D2 /* SearchUserDTO.swift in Sources */,

@@ -8,7 +8,14 @@
 import Foundation
 import Alamofire
 
-class API {
+enum StudyError: Error, Equatable {
+    case internalError(message: String)
+    case networkError(message: String)
+    case emptyKeywordError
+}
+
+class API: SearchUserRepository {
+    
     static let shared = API()
     
     enum Constants {
@@ -18,15 +25,16 @@ class API {
 }
 
 extension API {
-    func searchUser(text: String, completion: @escaping([SearchUserDTO.UserProfile]?, AFError?) -> Void) {
+    func searchUser(text: String, completion: @escaping([SearchUserDTO.UserProfile]?, StudyError?) -> Void) {
         let url = Constants.baseURL + Constants.searchUserURL
-        
-        AF.request(url, method: .get, parameters: SearchUserDTO.Request(query: text).toDictionary, encoding: URLEncoding.queryString).responseDecodable(of: SearchUserDTO.Response.self) { response in
+        AF.request(url, method: .get,
+                   parameters: SearchUserDTO.Request(query: text).toDictionary,
+                   encoding: URLEncoding.queryString).responseDecodable(of: SearchUserDTO.Response.self) { response in
             switch response.result {
             case .success(let data):
                 completion(data.items, nil)
             case .failure(let error):
-                completion(nil, error)
+                completion(nil, .internalError(message: error.localizedDescription))
             }
         }
     }

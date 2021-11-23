@@ -28,5 +28,9 @@ enum SearchUserDTO {
             case name = "login"
             case profileUrl = "avatar_url"
         }
+        
+        func toDomain() -> UserModel {
+            return .init(name: name, profileUrl: profileUrl)
+        }
     }
 }
