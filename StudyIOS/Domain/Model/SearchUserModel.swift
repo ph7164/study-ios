@@ -21,5 +21,3 @@ struct UserModel {
         self.profileUrl = profileUrl
     }
 }
-
-

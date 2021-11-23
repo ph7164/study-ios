@@ -33,6 +33,4 @@ enum SearchUserDTO {
             return .init(name: name, profileUrl: profileUrl)
         }
     }
-    
-    
 }
