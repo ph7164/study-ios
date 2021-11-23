@@ -8,127 +8,99 @@
 import XCTest
 @testable import StudyIOS
 
-class DummySearchUserRepository: SearchUserRepository {
-    func searchUser(text: String, completion: @escaping ([SearchUserDTO.UserProfile]?, StudyError?) -> Void) {
-    }
-}
-
-class FakeSearchUserRepository: SearchUserRepository {
-    var repo: [SearchUserDTO.UserProfile] = []
-    
-    func addUser(test: SearchUserDTO.UserProfile) {
-        repo.append(test)
-    }
-    
-    func searchUser(text: String, completion: @escaping ([SearchUserDTO.UserProfile]?, StudyError?) -> Void) {
-        completion(repo, nil)
-    }
-}
-
-class StubSearchUserRepository: SearchUserRepository {
-    func searchUser(text: String, completion: @escaping ([SearchUserDTO.UserProfile]?, StudyError?) -> Void) {
-        completion([.init(name: "", profileUrl: ""),
-                    .init(name: "", profileUrl: ""),
-                    .init(name: "", profileUrl: "")], nil)
-    }
-}
-
 class MockSearchUserRepository: SearchUserRepository {
     var searchUserCallsCount = 0
-    var repo: [SearchUserDTO.UserProfile] = [.init(name: "", profileUrl: ""),
-                                             .init(name: "", profileUrl: ""),
-                                             .init(name: "", profileUrl: "")]
+    var repo: [SearchUserDTO.UserProfile]?
+    var searchUsersError: StudyError?
     
     func searchUser(text: String, completion: @escaping ([SearchUserDTO.UserProfile]?, StudyError?) -> Void) {
-        print("mock search")
-        search()
-        search()
-        search()
-        search()
-        print("complete")
-        completion(repo, nil)
+        searchUserCallsCount += 1
+        completion(repo, searchUsersError)
     }
     
-    func search() {
-        print("count + 1")
-        searchUserCallsCount += 1
-    }
 }
 
 class StudyIOSTests: XCTestCase {
     var sut: SearchUserUseCase!
+    var repo: MockSearchUserRepository!
 
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.
-        sut = SearchUserUseCase(repository: FakeSearchUserRepository())
+        repo = MockSearchUserRepository()
+        sut = SearchUserUseCase(repository: repo)
     }
 
     override func tearDownWithError() throws {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
         sut = nil
+        repo = nil
     }
 
 }
 
 extension StudyIOSTests {
     
-    func testSearchWithEmptyKeywordFake() {
+    func testSearchWithEmptyKeyword() {
         // given
-        let expectedResultCount = 3
-        var resultCount = 0
-        
-        let fake = FakeSearchUserRepository()
-        fake.addUser(test: .init(name: "", profileUrl: ""))
-        fake.addUser(test: .init(name: "", profileUrl: ""))
-        fake.addUser(test: .init(name: "", profileUrl: ""))
-        sut = SearchUserUseCase(repository: fake)
+        let expectation = expectation(description: #function)
+        let expectedError = StudyError.emptyKeywordError
+        let expectedCallsCount = 0
+        repo.searchUsersError = .emptyKeywordError
         
         // when
         sut.searchUser(text: "") { (result, err) in
-            guard let result = result else { return }
-            resultCount = result.count
-            
+            // then
+            XCTAssertNil(result)
+            XCTAssertEqual(expectedError, err)
+            expectation.fulfill()
         }
         
         // then
-        XCTAssertEqual(expectedResultCount, resultCount)
+        wait(for: [expectation], timeout: 2)
+        XCTAssertEqual(expectedCallsCount, repo.searchUserCallsCount)
     }
     
-    func testSearchWithEmptyKeywordStub() {
+    func testSearchWithError() {
         // given
-        let expectedResultCount = 3
-        var resultCount = 0
-        sut = SearchUserUseCase(repository: StubSearchUserRepository())
+        let expectation = expectation(description: #function)
+        let expectedError = StudyError.internalError(message: "error")
+        let expectedCallsCount = 1
+        repo.searchUsersError = .internalError(message: "error")
         
         // when
-        sut.searchUser(text: "") { (result, err) in
-            guard let result = result else { return }
-            resultCount = result.count
+        sut.searchUser(text: "dd") { (result, err) in
+            // then
+            XCTAssertNil(result)
+            XCTAssertEqual(expectedError, err)
+            expectation.fulfill()
         }
         
         // then
-        XCTAssertEqual(expectedResultCount, resultCount)
+        wait(for: [expectation], timeout: 2)
+        XCTAssertEqual(expectedCallsCount, repo.searchUserCallsCount)
     }
     
-    func testSearchWithEmptyKeywordMock() {
+    func testSearchSuccess() {
         // given
-        let expectedResultCount = 3
-        let expectedCallsCount = 4
-        var resultCount = 0
-        let mock = MockSearchUserRepository()
-        sut = SearchUserUseCase(repository: mock)
-        
+        let expectation = expectation(description: #function)
+        let expectedCallsCount = 1
+        let expectedUsers: [SearchUserDTO.UserProfile] = [.init(name: "ph7164", profileUrl: ""),
+                                                          .init(name: "ph", profileUrl: "")]
+        repo.repo = expectedUsers
         
         // when
-        sut.searchUser(text: "") { (result, err) in
-            guard let result = result else { return }
-            
-            resultCount = result.count
+        var resultUsers: [SearchUserDTO.UserProfile]?
+        sut.searchUser(text: "ss") { (result, err) in
+            // then
+            resultUsers = result
+            XCTAssertNil(err)
+            expectation.fulfill()
         }
         
         // then
-        XCTAssertEqual(expectedResultCount, resultCount)
-        XCTAssertEqual(expectedCallsCount, mock.searchUserCallsCount)
+        wait(for: [expectation], timeout: 2)
+        XCTAssertEqual(expectedCallsCount, repo.searchUserCallsCount)
+        XCTAssertEqual(expectedUsers.count, resultUsers?.count)
     }
     
 }

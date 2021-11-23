@@ -36,14 +36,14 @@ extension SearchUserViewController: UISearchControllerDelegate, UISearchBarDeleg
         let str = searchController.searchBar.text?.replacingOccurrences(of: " ", with: "").replacingOccurrences(of: "\n", with: "")
         guard let str = str, !str.isEmpty else { return }
         users.removeAll()
-        useCase?.searchUser(text: searchController.searchBar.text!) { (result, err) in
+        useCase?.searchUser(text: searchController.searchBar.text!) { [weak self] (result, err) in
             guard let result = result else { return }
             if err == nil {
                 if !result.isEmpty {
                     for item in result {
-                        self.users.append(item.toDomain())
+                        self?.users.append(item.toDomain())
                     }
-                    self.tableView.reloadData()
+                    self?.tableView.reloadData()
                 }
             }
         }

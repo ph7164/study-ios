@@ -8,9 +8,10 @@
 import Foundation
 import Alamofire
 
-enum StudyError: Error {
+enum StudyError: Error, Equatable {
     case internalError(message: String)
     case networkError(message: String)
+    case emptyKeywordError
 }
 
 class API: SearchUserRepository {
@@ -33,7 +34,7 @@ extension API {
             case .success(let data):
                 completion(data.items, nil)
             case .failure(let error):
-                completion(nil, .networkError(message: error.localizedDescription))
+                completion(nil, .internalError(message: error.localizedDescription))
             }
         }
     }
