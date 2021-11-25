@@ -10,6 +10,8 @@ import Foundation
 class SearchUserViewModel {
     private let useCase = SearchUserUseCase(repository: API.shared)
     let searchUserResult = Box([UserModel]())
+    
+//    var searchDone: ((_ result: [UserModel]) -> Void)?
 }
 
 extension SearchUserViewModel {
@@ -21,6 +23,9 @@ extension SearchUserViewModel {
                   }
             guard let result = result else { return }
             self.searchUserResult.value = result
+//            if self.searchDone != nil {
+//                self.searchDone!(result)
+//            }
         }
     }
 }

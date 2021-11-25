@@ -38,6 +38,10 @@ class SearchUserViewController: UIViewController {
             self?.users = searchResult
             self?.tableView.reloadData()
         }
+//        viewModel?.searchDone = { result in
+//            self.users = result
+//            self.tableView.reloadData()
+//        }
     }
 }
 
