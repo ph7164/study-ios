@@ -18,7 +18,7 @@ class SearchUserViewController: UIViewController {
     
     private var searchController = UISearchController(searchResultsController: nil)
     private var users: [UserModel] = []
-    private var viewModel: SearchUserViewModelType?
+    private var viewModel: SearchUserViewModel?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,6 +30,14 @@ class SearchUserViewController: UIViewController {
         definesPresentationContext = true
 
         viewModel = SearchUserViewModel()
+        bindUI()
+    }
+    
+    private func bindUI() {
+        viewModel?.searchUserResult.bind { [weak self] searchResult in
+            self?.users = searchResult
+            self?.tableView.reloadData()
+        }
     }
 }
 
@@ -38,15 +46,7 @@ extension SearchUserViewController: UISearchControllerDelegate, UISearchBarDeleg
         guard let searchBarText = searchController.searchBar.text else { return }
         let str = searchBarText.replacingOccurrences(of: " ", with: "").replacingOccurrences(of: "\n", with: "")
         if str.isEmpty { return }
-        viewModel?.input.searchUser(text: searchBarText) { [weak self] (result, err) in
-            guard let self = self,
-                  let result = result,
-                  err == nil else {
-                      return
-                  }
-            self.users = result
-            self.tableView.reloadData()
-        }
+        viewModel?.searchUser(text: searchBarText)
     }
     
     private func configureSearchController() {

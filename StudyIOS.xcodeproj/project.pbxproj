@@ -31,6 +31,7 @@
 		FDAD84A82744C59100AB7FD5 /* SearchUserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDAD84A72744C59100AB7FD5 /* SearchUserModel.swift */; };
 		FDAD84AB2745469000AB7FD5 /* SearchUserRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDAD84AA2745468F00AB7FD5 /* SearchUserRepository.swift */; };
 		FDAD84AE274546B300AB7FD5 /* SearchUserUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDAD84AD274546B300AB7FD5 /* SearchUserUseCase.swift */; };
+		FDAF06C7274F4E0000C53860 /* Box.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDAF06C6274F4E0000C53860 /* Box.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -85,6 +86,7 @@
 		FDAD84A72744C59100AB7FD5 /* SearchUserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchUserModel.swift; sourceTree = "<group>"; };
 		FDAD84AA2745468F00AB7FD5 /* SearchUserRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchUserRepository.swift; sourceTree = "<group>"; };
 		FDAD84AD274546B300AB7FD5 /* SearchUserUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchUserUseCase.swift; sourceTree = "<group>"; };
+		FDAF06C6274F4E0000C53860 /* Box.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Box.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -200,6 +202,7 @@
 			isa = PBXGroup;
 			children = (
 				FD8CD924274227B200D378D2 /* Extension */,
+				FDAF06C6274F4E0000C53860 /* Box.swift */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -550,6 +553,7 @@
 				FD8CD8EE27421B0200D378D2 /* AppDelegate.swift in Sources */,
 				FDAD84A82744C59100AB7FD5 /* SearchUserModel.swift in Sources */,
 				FD767228274D333900E9B9CB /* SearchUserViewModel.swift in Sources */,
+				FDAF06C7274F4E0000C53860 /* Box.swift in Sources */,
 				FD8CD9302742286100D378D2 /* SearchUserViewController.swift in Sources */,
 				FDAD84AE274546B300AB7FD5 /* SearchUserUseCase.swift in Sources */,
 				FD8CD933274228DC00D378D2 /* UserTableViewCell.swift in Sources */,

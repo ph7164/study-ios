@@ -7,43 +7,21 @@
 
 import Foundation
 
-protocol SearchUserViewModelInput {
-    func searchUser(text: String, completion: @escaping([UserModel]?, StudyError?) -> Void)
-}
-
-protocol SearchUserViewModelOutput {
-    var searchUserResultList: [UserModel] { get }
-}
-
-protocol SearchUserViewModelType {
-    var input: SearchUserViewModelInput { get }
-    var output: SearchUserViewModelOutput { get }
-}
-
-class SearchUserViewModel: SearchUserViewModelType {
-    private let repo = API.shared
+class SearchUserViewModel {
     private let useCase = SearchUserUseCase(repository: API.shared)
-    private var searchUserResult: [UserModel] = []
+    let searchUserResult = Box([UserModel]())
 }
 
-extension SearchUserViewModel: SearchUserViewModelInput {
-    var input: SearchUserViewModelInput { return self }
-    func searchUser(text: String, completion: @escaping ([UserModel]?, StudyError?) -> Void) {
+extension SearchUserViewModel {
+    func searchUser(text: String) {
         useCase.searchUser(text: text) { [weak self] (result, err) in
-            guard err == nil else {
-                completion(nil, err)
-                return
-            }
+            guard let self = self,
+                  err == nil else {
+                      return
+                  }
             guard let result = result else { return }
-            self?.searchUserResult = result
-            completion(result, nil)
+            self.searchUserResult.value = result
         }
     }
 }
 
-extension SearchUserViewModel: SearchUserViewModelOutput {
-    var output: SearchUserViewModelOutput { return self }
-    var searchUserResultList: [UserModel] {
-        return searchUserResult
-    }
-}

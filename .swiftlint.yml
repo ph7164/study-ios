@@ -48,4 +48,11 @@ identifier_name:
     - URL
     - GlobalAPIKey
     - ad
+nesting:
+  type_level:
+    warning: 3 # this means the warning appears if you nest 3 level deep instead of 1
+    error: 6
+  statement_level:
+    warning: 5
+    error: 10
 reporter: "xcode" # reporter type (xcode, json, csv, checkstyle, junit, html, emoji)
