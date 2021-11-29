@@ -8,24 +8,29 @@
 import Foundation
 
 class SearchUserViewModel {
-    private let useCase = SearchUserUseCase(repository: API.shared)
+    private var useCase = SearchUserUseCase(repository: API.shared)
     let searchUserResult = Box([UserModel]())
+    let searchUserError = Box(StudyError.initError)
     
-//    var searchDone: ((_ result: [UserModel]) -> Void)?
+    init(useCase: SearchUserUseCase) {
+        self.useCase = useCase
+    }
 }
 
 extension SearchUserViewModel {
     func searchUser(text: String) {
+        guard text != "" else {
+            searchUserError.value = .emptyKeywordError
+            return
+        }
         useCase.searchUser(text: text) { [weak self] (result, err) in
             guard let self = self,
                   err == nil else {
+                      self?.searchUserError.value = err!
                       return
                   }
             guard let result = result else { return }
             self.searchUserResult.value = result
-//            if self.searchDone != nil {
-//                self.searchDone!(result)
-//            }
         }
     }
 }

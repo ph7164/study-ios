@@ -20,10 +20,6 @@ class SearchUserUseCase: SearchUserUseCaseType {
     }
     
     func searchUser(text: String, completion: @escaping ([UserModel]?, StudyError?) -> Void) {
-        guard !text.isEmpty else {
-            completion(nil, .emptyKeywordError)
-            return
-        }
         repository.searchUser(text: text) { (result, error) in
             guard error == nil else {
                 completion(nil, error)

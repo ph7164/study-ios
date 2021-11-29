@@ -29,19 +29,34 @@ class SearchUserViewController: UIViewController {
         configureSearchController()
         definesPresentationContext = true
 
-        viewModel = SearchUserViewModel()
+        viewModel = SearchUserViewModel(useCase: SearchUserUseCase(repository: API.shared))
         bindUI()
     }
     
     private func bindUI() {
-        viewModel?.searchUserResult.bind { [weak self] searchResult in
-            self?.users = searchResult
+        viewModel?.searchUserResult.bind { [weak self] users in
+            self?.users = users
             self?.tableView.reloadData()
         }
-//        viewModel?.searchDone = { result in
-//            self.users = result
-//            self.tableView.reloadData()
-//        }
+        
+        viewModel?.searchUserError.bind { [weak self] error in
+            switch error {
+            case .initError:
+                break
+            case .emptyKeywordError:
+                self?.showEmptyKeywordErrorAlert(msg: "키워드를 입력해 주세요.")
+            default:
+                break
+            }
+        }
+    }
+    
+    private func showEmptyKeywordErrorAlert(msg: String) {
+        let alert = UIAlertController(title: nil,
+                                      message: msg,
+                                      preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "확인", style: .default))
+        self.present(alert, animated: true, completion: nil)
     }
 }
 
