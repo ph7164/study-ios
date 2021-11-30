@@ -28,6 +28,7 @@
 		FD8CD9302742286100D378D2 /* SearchUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD8CD92F2742286100D378D2 /* SearchUserViewController.swift */; };
 		FD8CD933274228DC00D378D2 /* UserTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD8CD931274228DC00D378D2 /* UserTableViewCell.swift */; };
 		FD8CD934274228DC00D378D2 /* UserTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FD8CD932274228DC00D378D2 /* UserTableViewCell.xib */; };
+		FD9C7A642755E33A0099BC82 /* SearchUserViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD9C7A632755E33A0099BC82 /* SearchUserViewModelTests.swift */; };
 		FDAD84A82744C59100AB7FD5 /* SearchUserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDAD84A72744C59100AB7FD5 /* SearchUserModel.swift */; };
 		FDAD84AB2745469000AB7FD5 /* SearchUserRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDAD84AA2745468F00AB7FD5 /* SearchUserRepository.swift */; };
 		FDAD84AE274546B300AB7FD5 /* SearchUserUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDAD84AD274546B300AB7FD5 /* SearchUserUseCase.swift */; };
@@ -83,6 +84,7 @@
 		FD8CD92F2742286100D378D2 /* SearchUserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchUserViewController.swift; sourceTree = "<group>"; };
 		FD8CD931274228DC00D378D2 /* UserTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserTableViewCell.swift; sourceTree = "<group>"; };
 		FD8CD932274228DC00D378D2 /* UserTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UserTableViewCell.xib; sourceTree = "<group>"; };
+		FD9C7A632755E33A0099BC82 /* SearchUserViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchUserViewModelTests.swift; sourceTree = "<group>"; };
 		FDAD84A72744C59100AB7FD5 /* SearchUserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchUserModel.swift; sourceTree = "<group>"; };
 		FDAD84AA2745468F00AB7FD5 /* SearchUserRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchUserRepository.swift; sourceTree = "<group>"; };
 		FDAD84AD274546B300AB7FD5 /* SearchUserUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchUserUseCase.swift; sourceTree = "<group>"; };
@@ -185,6 +187,7 @@
 			isa = PBXGroup;
 			children = (
 				FD8CD90427421B0800D378D2 /* StudyIOSTests.swift */,
+				FD9C7A632755E33A0099BC82 /* SearchUserViewModelTests.swift */,
 			);
 			path = StudyIOSTests;
 			sourceTree = "<group>";
@@ -568,6 +571,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FD8CD90527421B0800D378D2 /* StudyIOSTests.swift in Sources */,
+				FD9C7A642755E33A0099BC82 /* SearchUserViewModelTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

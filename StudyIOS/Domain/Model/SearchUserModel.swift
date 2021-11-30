@@ -7,13 +7,9 @@
 
 import Foundation
 
-struct UserModel {
+struct UserModel: Equatable {
     var name: String
     var profileUrl: String
-    
-    init() {
-        self.init(name: "", profileUrl: "")
-    }
     
     init(name: String,
          profileUrl: String) {

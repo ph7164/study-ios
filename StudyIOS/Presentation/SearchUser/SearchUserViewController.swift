@@ -18,7 +18,7 @@ class SearchUserViewController: UIViewController {
     
     private var searchController = UISearchController(searchResultsController: nil)
     private var users: [UserModel] = []
-    private var viewModel: SearchUserViewModel?
+    private var viewModel: SearchUserViewModelType?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,7 +29,7 @@ class SearchUserViewController: UIViewController {
         configureSearchController()
         definesPresentationContext = true
 
-        viewModel = SearchUserViewModel(useCase: SearchUserUseCase(repository: API.shared))
+        viewModel = SearchUserViewModel()
         bindUI()
     }
     

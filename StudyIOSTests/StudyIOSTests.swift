@@ -9,6 +9,7 @@ import XCTest
 @testable import StudyIOS
 
 class MockSearchUserRepository: SearchUserRepository {
+    
     var searchUserCallsCount = 0
     var repo: [SearchUserDTO.UserProfile]?
     var searchUsersError: StudyError?
@@ -84,7 +85,7 @@ extension StudyIOSTests {
         let expectation = expectation(description: #function)
         let expectedCallsCount = 1
         let expectedUsers: [SearchUserDTO.UserProfile] = [.init(name: "ph7164", profileUrl: ""),
-                                                            .init(name: "ph7164", profileUrl: "")]
+                                                          .init(name: "ph", profileUrl: "")]
         repo.repo = expectedUsers
         
         // when
