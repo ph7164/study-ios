@@ -8,7 +8,7 @@
 import Foundation
 
 protocol SearchUserUseCaseType {
-    func searchUser(text: String, completion: @escaping([UserModel]?, StudyError?) -> Void)
+    func searchUser(text: String, completion: @escaping(Result<[UserModel], StudyError>) -> Void)
 }
 
 class SearchUserUseCase: SearchUserUseCaseType {
@@ -19,19 +19,21 @@ class SearchUserUseCase: SearchUserUseCaseType {
         self.repository = repository
     }
     
-    func searchUser(text: String, completion: @escaping ([UserModel]?, StudyError?) -> Void) {
-        guard !text.isEmpty else {
-            completion(nil, .emptyKeywordError)
+    func searchUser(text: String, completion: @escaping (Result<[UserModel], StudyError>) -> Void) {
+        if text == "" {
+            completion(.failure(.emptyKeywordError))
             return
         }
         repository.searchUser(text: text) { (result, error) in
-            guard error == nil else {
-                completion(nil, error)
+            if let err = error {
+                completion(.failure(err))
                 return
             }
-            guard let result = result else { return }
-            let userModels = result.map { $0.toDomain() }
-            completion(userModels, nil)
+            
+            if let result = result {
+                completion(.success(result.map { $0.toDomain() }))
+                return
+            }
         }
     }
 }

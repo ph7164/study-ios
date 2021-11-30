@@ -10,13 +10,13 @@
 		6E3F2C0B56524BAFB8148A1E /* Pods_StudyIOS_StudyIOSUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34727B752BDDDAE22363A213 /* Pods_StudyIOS_StudyIOSUITests.framework */; };
 		ABDEB5B714ADBD7B5AB8C3E3 /* Pods_StudyIOSTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5DB009FB17D341F361AC7FE /* Pods_StudyIOSTests.framework */; };
 		ADE34D78F8CE08440C4E938C /* Pods_StudyIOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B8AB1232F1E7019B95E5219D /* Pods_StudyIOS.framework */; };
+		FD767228274D333900E9B9CB /* SearchUserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD767227274D333900E9B9CB /* SearchUserViewModel.swift */; };
 		FD8CD8EE27421B0200D378D2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD8CD8ED27421B0200D378D2 /* AppDelegate.swift */; };
 		FD8CD8F027421B0200D378D2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD8CD8EF27421B0200D378D2 /* SceneDelegate.swift */; };
 		FD8CD8F227421B0200D378D2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD8CD8F127421B0200D378D2 /* ViewController.swift */; };
 		FD8CD8F527421B0200D378D2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FD8CD8F327421B0200D378D2 /* Main.storyboard */; };
 		FD8CD8F727421B0700D378D2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FD8CD8F627421B0700D378D2 /* Assets.xcassets */; };
 		FD8CD8FA27421B0700D378D2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FD8CD8F827421B0700D378D2 /* LaunchScreen.storyboard */; };
-		FD8CD90527421B0800D378D2 /* StudyIOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD8CD90427421B0800D378D2 /* StudyIOSTests.swift */; };
 		FD8CD90F27421B0800D378D2 /* StudyIOSUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD8CD90E27421B0800D378D2 /* StudyIOSUITests.swift */; };
 		FD8CD91127421B0800D378D2 /* StudyIOSUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD8CD91027421B0800D378D2 /* StudyIOSUITestsLaunchTests.swift */; };
 		FD8CD91F27421DDE00D378D2 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = FD8CD91E27421DDE00D378D2 /* .swiftlint.yml */; };
@@ -27,9 +27,12 @@
 		FD8CD9302742286100D378D2 /* SearchUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD8CD92F2742286100D378D2 /* SearchUserViewController.swift */; };
 		FD8CD933274228DC00D378D2 /* UserTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD8CD931274228DC00D378D2 /* UserTableViewCell.swift */; };
 		FD8CD934274228DC00D378D2 /* UserTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FD8CD932274228DC00D378D2 /* UserTableViewCell.xib */; };
+		FD9C7A642755E33A0099BC82 /* SearchUserViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD9C7A632755E33A0099BC82 /* SearchUserViewModelTests.swift */; };
+		FD9C7A6627563D730099BC82 /* SearchUserUseCaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD9C7A6527563D730099BC82 /* SearchUserUseCaseTests.swift */; };
 		FDAD84A82744C59100AB7FD5 /* SearchUserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDAD84A72744C59100AB7FD5 /* SearchUserModel.swift */; };
 		FDAD84AB2745469000AB7FD5 /* SearchUserRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDAD84AA2745468F00AB7FD5 /* SearchUserRepository.swift */; };
 		FDAD84AE274546B300AB7FD5 /* SearchUserUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDAD84AD274546B300AB7FD5 /* SearchUserUseCase.swift */; };
+		FDAF06C7274F4E0000C53860 /* Box.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDAF06C6274F4E0000C53860 /* Box.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +62,7 @@
 		B247E072DBC001ED75D7308B /* Pods-StudyIOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StudyIOS.debug.xcconfig"; path = "Target Support Files/Pods-StudyIOS/Pods-StudyIOS.debug.xcconfig"; sourceTree = "<group>"; };
 		B8AB1232F1E7019B95E5219D /* Pods_StudyIOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_StudyIOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E5DB009FB17D341F361AC7FE /* Pods_StudyIOSTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_StudyIOSTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FD767227274D333900E9B9CB /* SearchUserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchUserViewModel.swift; sourceTree = "<group>"; };
 		FD8CD8EA27421B0200D378D2 /* StudyIOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StudyIOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD8CD8ED27421B0200D378D2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FD8CD8EF27421B0200D378D2 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -68,7 +72,6 @@
 		FD8CD8F927421B0700D378D2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FD8CD8FB27421B0700D378D2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FD8CD90027421B0800D378D2 /* StudyIOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = StudyIOSTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		FD8CD90427421B0800D378D2 /* StudyIOSTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudyIOSTests.swift; sourceTree = "<group>"; };
 		FD8CD90A27421B0800D378D2 /* StudyIOSUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = StudyIOSUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD8CD90E27421B0800D378D2 /* StudyIOSUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudyIOSUITests.swift; sourceTree = "<group>"; };
 		FD8CD91027421B0800D378D2 /* StudyIOSUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudyIOSUITestsLaunchTests.swift; sourceTree = "<group>"; };
@@ -80,9 +83,12 @@
 		FD8CD92F2742286100D378D2 /* SearchUserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchUserViewController.swift; sourceTree = "<group>"; };
 		FD8CD931274228DC00D378D2 /* UserTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserTableViewCell.swift; sourceTree = "<group>"; };
 		FD8CD932274228DC00D378D2 /* UserTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UserTableViewCell.xib; sourceTree = "<group>"; };
+		FD9C7A632755E33A0099BC82 /* SearchUserViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchUserViewModelTests.swift; sourceTree = "<group>"; };
+		FD9C7A6527563D730099BC82 /* SearchUserUseCaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchUserUseCaseTests.swift; sourceTree = "<group>"; };
 		FDAD84A72744C59100AB7FD5 /* SearchUserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchUserModel.swift; sourceTree = "<group>"; };
 		FDAD84AA2745468F00AB7FD5 /* SearchUserRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchUserRepository.swift; sourceTree = "<group>"; };
 		FDAD84AD274546B300AB7FD5 /* SearchUserUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchUserUseCase.swift; sourceTree = "<group>"; };
+		FDAF06C6274F4E0000C53860 /* Box.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Box.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -180,7 +186,8 @@
 		FD8CD90327421B0800D378D2 /* StudyIOSTests */ = {
 			isa = PBXGroup;
 			children = (
-				FD8CD90427421B0800D378D2 /* StudyIOSTests.swift */,
+				FD9C7A632755E33A0099BC82 /* SearchUserViewModelTests.swift */,
+				FD9C7A6527563D730099BC82 /* SearchUserUseCaseTests.swift */,
 			);
 			path = StudyIOSTests;
 			sourceTree = "<group>";
@@ -198,6 +205,7 @@
 			isa = PBXGroup;
 			children = (
 				FD8CD924274227B200D378D2 /* Extension */,
+				FDAF06C6274F4E0000C53860 /* Box.swift */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -252,6 +260,7 @@
 				FD8CD92F2742286100D378D2 /* SearchUserViewController.swift */,
 				FD8CD931274228DC00D378D2 /* UserTableViewCell.swift */,
 				FD8CD932274228DC00D378D2 /* UserTableViewCell.xib */,
+				FD767227274D333900E9B9CB /* SearchUserViewModel.swift */,
 			);
 			path = SearchUser;
 			sourceTree = "<group>";
@@ -546,6 +555,8 @@
 				FDAD84AB2745469000AB7FD5 /* SearchUserRepository.swift in Sources */,
 				FD8CD8EE27421B0200D378D2 /* AppDelegate.swift in Sources */,
 				FDAD84A82744C59100AB7FD5 /* SearchUserModel.swift in Sources */,
+				FD767228274D333900E9B9CB /* SearchUserViewModel.swift in Sources */,
+				FDAF06C7274F4E0000C53860 /* Box.swift in Sources */,
 				FD8CD9302742286100D378D2 /* SearchUserViewController.swift in Sources */,
 				FDAD84AE274546B300AB7FD5 /* SearchUserUseCase.swift in Sources */,
 				FD8CD933274228DC00D378D2 /* UserTableViewCell.swift in Sources */,
@@ -559,7 +570,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FD8CD90527421B0800D378D2 /* StudyIOSTests.swift in Sources */,
+				FD9C7A6627563D730099BC82 /* SearchUserUseCaseTests.swift in Sources */,
+				FD9C7A642755E33A0099BC82 /* SearchUserViewModelTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -12,6 +12,7 @@ enum StudyError: Error, Equatable {
     case internalError(message: String)
     case networkError(message: String)
     case emptyKeywordError
+    case initError
 }
 
 class API: SearchUserRepository {

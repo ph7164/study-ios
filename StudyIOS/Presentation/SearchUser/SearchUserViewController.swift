@@ -18,7 +18,7 @@ class SearchUserViewController: UIViewController {
     
     private var searchController = UISearchController(searchResultsController: nil)
     private var users: [UserModel] = []
-    private var useCase: SearchUserUseCaseType?
+    private var viewModel: SearchUserViewModelType?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,7 +29,34 @@ class SearchUserViewController: UIViewController {
         configureSearchController()
         definesPresentationContext = true
 
-        useCase = SearchUserUseCase(repository: API.shared)
+        viewModel = SearchUserViewModel()
+        bindUI()
+    }
+    
+    private func bindUI() {
+        viewModel?.searchUserResult.bind { [weak self] users in
+            self?.users = users
+            self?.tableView.reloadData()
+        }
+        
+        viewModel?.searchUserError.bind { [weak self] error in
+            switch error {
+            case .initError:
+                break
+            case .emptyKeywordError:
+                self?.showEmptyKeywordErrorAlert(msg: "키워드를 입력해 주세요.")
+            default:
+                break
+            }
+        }
+    }
+    
+    private func showEmptyKeywordErrorAlert(msg: String) {
+        let alert = UIAlertController(title: nil,
+                                      message: msg,
+                                      preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "확인", style: .default))
+        self.present(alert, animated: true, completion: nil)
     }
 }
 
@@ -38,16 +65,7 @@ extension SearchUserViewController: UISearchControllerDelegate, UISearchBarDeleg
         guard let searchBarText = searchController.searchBar.text else { return }
         let str = searchBarText.replacingOccurrences(of: " ", with: "").replacingOccurrences(of: "\n", with: "")
         if str.isEmpty { return }
-        users.removeAll()
-        useCase?.searchUser(text: searchBarText) { [weak self] (result, err) in
-            guard let self = self,
-                  let result = result,
-                  err == nil else {
-                      return
-                  }
-            self.users = result
-            self.tableView.reloadData()
-        }
+        viewModel?.searchUser(text: searchBarText)
     }
     
     private func configureSearchController() {
