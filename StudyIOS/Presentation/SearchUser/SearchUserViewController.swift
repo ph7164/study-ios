@@ -60,19 +60,20 @@ class SearchUserViewController: UIViewController {
     }
 }
 
-extension SearchUserViewController: UISearchControllerDelegate, UISearchBarDelegate, UISearchResultsUpdating {
-    func updateSearchResults(for searchController: UISearchController) {
-        guard let searchBarText = searchController.searchBar.text else { return }
+extension SearchUserViewController: UISearchControllerDelegate, UISearchBarDelegate {
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        guard let searchBarText = searchBar.text else { return }
         let str = searchBarText.replacingOccurrences(of: " ", with: "").replacingOccurrences(of: "\n", with: "")
         if str.isEmpty { return }
         viewModel?.searchUser(text: searchBarText)
     }
     
     private func configureSearchController() {
-        searchController.searchResultsUpdater = self
         searchController.obscuresBackgroundDuringPresentation = false
         searchController.searchBar.placeholder = Constants.searchBarPlaceholder
         navigationItem.searchController = searchController
+        searchController.searchBar.delegate = self
     }
 }
 extension SearchUserViewController: UITableViewDelegate, UITableViewDataSource {
