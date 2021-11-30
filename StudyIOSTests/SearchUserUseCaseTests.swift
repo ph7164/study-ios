@@ -1,8 +1,8 @@
 //
-//  StudyIOSTests.swift
+//  SearchUserUseCaseTests.swift
 //  StudyIOSTests
 //
-//  Created by 홍필화 on 2021/11/15.
+//  Created by 홍필화 on 2021/11/30.
 //
 
 import XCTest
@@ -18,12 +18,10 @@ class MockSearchUserRepository: SearchUserRepository {
         searchUserCallsCount += 1
         completion(repo, searchUsersError)
     }
-    
 }
 
-class StudyIOSTests: XCTestCase {
-    
-    var sut: SearchUserViewModel!
+class SearchUserUseCaseTests: XCTestCase {
+
     var useCase: SearchUserUseCase!
     var repo: MockSearchUserRepository!
 
@@ -31,19 +29,16 @@ class StudyIOSTests: XCTestCase {
         // Put setup code here. This method is called before the invocation of each test method in the class.
         repo = MockSearchUserRepository()
         useCase = SearchUserUseCase(repository: repo)
-        sut = SearchUserViewModel(useCase: useCase)
     }
 
     override func tearDownWithError() throws {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
-        sut = nil
         repo = nil
         useCase = nil
     }
 }
 
-extension StudyIOSTests {
-    
+extension SearchUserUseCaseTests {
     func testSearchWithEmptyKeyword() {
         // given
         let expectation = expectation(description: #function)
@@ -52,14 +47,19 @@ extension StudyIOSTests {
         repo.searchUsersError = .emptyKeywordError
         
         // when
-        sut.searchUser(text: "")
-        expectation.fulfill()
+        useCase.searchUser(text: "") { result in
+            switch result {
+            case .success:
+                break
+            case .failure(let error):
+                XCTAssertEqual(expectedError, error)
+                expectation.fulfill()
+            }
+        }
         
         // then
         wait(for: [expectation], timeout: 2)
         XCTAssertEqual(expectedCallsCount, repo.searchUserCallsCount)
-        XCTAssertEqual(0, sut.searchUserResult.value.count)
-        XCTAssertEqual(expectedError, sut.searchUserError.value)
     }
     
     func testSearchWithError() {
@@ -70,14 +70,19 @@ extension StudyIOSTests {
         repo.searchUsersError = .internalError(message: "error")
         
         // when
-        sut.searchUser(text: "ss")
-        expectation.fulfill()
+        useCase.searchUser(text: "dd") { result in
+            switch result {
+            case .success:
+                break
+            case .failure(let error):
+                XCTAssertEqual(expectedError, error)
+                expectation.fulfill()
+            }
+        }
         
         // then
         wait(for: [expectation], timeout: 2)
         XCTAssertEqual(expectedCallsCount, repo.searchUserCallsCount)
-        XCTAssertEqual(0, sut.searchUserResult.value.count)
-        XCTAssertEqual(expectedError, sut.searchUserError.value)
     }
     
     func testSearchSuccess() {
@@ -90,14 +95,19 @@ extension StudyIOSTests {
         
         // when
         var resultUsers: [UserModel]?
-        sut.searchUser(text: "ph")
-        expectation.fulfill()
+        useCase.searchUser(text: "dd") { result in
+            switch result {
+            case .success(let users):
+                resultUsers = users
+                expectation.fulfill()
+            case .failure:
+                break
+            }
+        }
         
         // then
         wait(for: [expectation], timeout: 2)
-        resultUsers = sut.searchUserResult.value
         XCTAssertEqual(expectedCallsCount, repo.searchUserCallsCount)
         XCTAssertEqual(expectedUsers.count, resultUsers?.count)
     }
-    
 }
