@@ -91,4 +91,12 @@ class SearchUserViewModelTests: XCTestCase {
         XCTAssertEqual(expectedCallsCount, useCase.searchUserCallsCount)
         XCTAssertEqual(expectedUsers, viewModel.searchUserResult.value)
     }
+    
+    func testViewModelSearchCancel() {
+        let expectedValue = true
+        
+        viewModel.didCancelSearch()
+        
+        XCTAssertEqual(expectedValue, viewModel.isCancelSearch.value)
+    }
 }

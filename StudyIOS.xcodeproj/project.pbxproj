@@ -29,6 +29,8 @@
 		FD8CD934274228DC00D378D2 /* UserTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FD8CD932274228DC00D378D2 /* UserTableViewCell.xib */; };
 		FD9C7A642755E33A0099BC82 /* SearchUserViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD9C7A632755E33A0099BC82 /* SearchUserViewModelTests.swift */; };
 		FD9C7A6627563D730099BC82 /* SearchUserUseCaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD9C7A6527563D730099BC82 /* SearchUserUseCaseTests.swift */; };
+		FDA1026A27570F6C00BB6933 /* SearchRecordTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDA1026827570F6C00BB6933 /* SearchRecordTableViewCell.swift */; };
+		FDA1026B27570F6C00BB6933 /* SearchRecordTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FDA1026927570F6C00BB6933 /* SearchRecordTableViewCell.xib */; };
 		FDAD84A82744C59100AB7FD5 /* SearchUserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDAD84A72744C59100AB7FD5 /* SearchUserModel.swift */; };
 		FDAD84AB2745469000AB7FD5 /* SearchUserRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDAD84AA2745468F00AB7FD5 /* SearchUserRepository.swift */; };
 		FDAD84AE274546B300AB7FD5 /* SearchUserUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDAD84AD274546B300AB7FD5 /* SearchUserUseCase.swift */; };
@@ -85,6 +87,8 @@
 		FD8CD932274228DC00D378D2 /* UserTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UserTableViewCell.xib; sourceTree = "<group>"; };
 		FD9C7A632755E33A0099BC82 /* SearchUserViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchUserViewModelTests.swift; sourceTree = "<group>"; };
 		FD9C7A6527563D730099BC82 /* SearchUserUseCaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchUserUseCaseTests.swift; sourceTree = "<group>"; };
+		FDA1026827570F6C00BB6933 /* SearchRecordTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchRecordTableViewCell.swift; sourceTree = "<group>"; };
+		FDA1026927570F6C00BB6933 /* SearchRecordTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchRecordTableViewCell.xib; sourceTree = "<group>"; };
 		FDAD84A72744C59100AB7FD5 /* SearchUserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchUserModel.swift; sourceTree = "<group>"; };
 		FDAD84AA2745468F00AB7FD5 /* SearchUserRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchUserRepository.swift; sourceTree = "<group>"; };
 		FDAD84AD274546B300AB7FD5 /* SearchUserUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchUserUseCase.swift; sourceTree = "<group>"; };
@@ -261,6 +265,8 @@
 				FD8CD931274228DC00D378D2 /* UserTableViewCell.swift */,
 				FD8CD932274228DC00D378D2 /* UserTableViewCell.xib */,
 				FD767227274D333900E9B9CB /* SearchUserViewModel.swift */,
+				FDA1026827570F6C00BB6933 /* SearchRecordTableViewCell.swift */,
+				FDA1026927570F6C00BB6933 /* SearchRecordTableViewCell.xib */,
 			);
 			path = SearchUser;
 			sourceTree = "<group>";
@@ -404,6 +410,7 @@
 				FD8CD8FA27421B0700D378D2 /* LaunchScreen.storyboard in Resources */,
 				FD8CD8F727421B0700D378D2 /* Assets.xcassets in Resources */,
 				FD8CD934274228DC00D378D2 /* UserTableViewCell.xib in Resources */,
+				FDA1026B27570F6C00BB6933 /* SearchRecordTableViewCell.xib in Resources */,
 				FD8CD8F527421B0200D378D2 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -562,6 +569,7 @@
 				FD8CD933274228DC00D378D2 /* UserTableViewCell.swift in Sources */,
 				FD8CD928274227F300D378D2 /* Api.swift in Sources */,
 				FD8CD92B2742281300D378D2 /* SearchUserDTO.swift in Sources */,
+				FDA1026A27570F6C00BB6933 /* SearchRecordTableViewCell.swift in Sources */,
 				FD8CD8F027421B0200D378D2 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

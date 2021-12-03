@@ -9,14 +9,19 @@ import Foundation
 
 protocol SearchUserViewModelType {
     func searchUser(text: String)
+    func didCancelSearch()
     var searchUserResult: Box<[UserModel]> { get }
     var searchUserError: Box<StudyError> { get }
+    var searchRecord: [String] { get }
+    var isCancelSearch: Box<Bool> { get }
 }
 
 class SearchUserViewModel: SearchUserViewModelType {
     private var useCase: SearchUserUseCaseType?
     let searchUserResult = Box([UserModel]())
     let searchUserError = Box(StudyError.initError)
+    var searchRecord: [String] = []
+    let isCancelSearch = Box(false)
     
     init(useCase: SearchUserUseCaseType = SearchUserUseCase(repository: API.shared)) {
         self.useCase = useCase
@@ -29,6 +34,8 @@ extension SearchUserViewModel {
             searchUserError.value = .emptyKeywordError
             return
         }
+        isCancelSearch.value = false
+        searchRecord.insert(text, at: 0)
         useCase?.searchUser(text: text) { [weak self] result in
             guard let self = self else { return }
             switch result {
@@ -38,6 +45,10 @@ extension SearchUserViewModel {
                 self.searchUserError.value = error
             }
         }
+    }
+    
+    func didCancelSearch() {
+        isCancelSearch.value = true
     }
 }
 
